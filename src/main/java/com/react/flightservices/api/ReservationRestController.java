@@ -59,7 +59,7 @@ public class ReservationRestController {
 		Reservation reservation = new Reservation();
 		reservation.setFlight(flight);
 		reservation.setPassenger(savePassenger);
-		reservation.setCheckIn(false);
+		reservation.setCheckedIn(false);
 		
 		 return reservationRepository.save(reservation);
 		
@@ -77,7 +77,7 @@ public class ReservationRestController {
 		
 		Reservation reservation = reservationRepository.findById(request.getId()).get();
 		reservation.setNoOfBags(request.getNoOfBags());
-		reservation.setCheckIn(request.isCheckIn());
+		reservation.setCheckedIn(request.isCheckedIn());
 		
 		return reservationRepository.save(reservation);
 		
