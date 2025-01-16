@@ -6,28 +6,27 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class Reservation extends AbstractEntity {
 
-	private boolean checkedIn;
-	private int noOfBags;
-
+	private Boolean checkedIn;
+	private int numberOfBags;
 	@OneToOne
 	private Flight flight;
 	@OneToOne
 	private Passenger passenger;
 
-	public boolean isCheckedIn() {
+	public Boolean getCheckedIn() {
 		return checkedIn;
 	}
 
-	public void setCheckedIn(boolean checkedIn) {
+	public void setCheckedIn(Boolean checkedIn) {
 		this.checkedIn = checkedIn;
 	}
 
-	public int getNoOfBags() {
-		return noOfBags;
+	public int getNumberOfBags() {
+		return numberOfBags;
 	}
 
-	public void setNoOfBags(int noOfBags) {
-		this.noOfBags = noOfBags;
+	public void setNumberOfBags(int numberOfBags) {
+		this.numberOfBags = numberOfBags;
 	}
 
 	public Flight getFlight() {
@@ -45,5 +44,6 @@ public class Reservation extends AbstractEntity {
 	public void setPassenger(Passenger passenger) {
 		this.passenger = passenger;
 	}
+
 
 }
