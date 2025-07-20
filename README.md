@@ -56,3 +56,59 @@ You can run the application directly using Maven Spring Boot plugin:
 
 ```bash
 mvn spring-boot:run
+```
+
+The application will start on port 8080 by default. You can access the API at http://localhost:8080.
+
+Database Configuration
+By default, this project might be configured to use an H2 in-memory database for ease of development. You can access the H2 console at http://localhost:8080/h2-console (make sure to set the JDBC URL as configured in application.properties, usually jdbc:h2:mem:testdb).
+
+To connect to an external database (e.g., MySQL, PostgreSQL), you'll need to:
+
+Add the appropriate database driver dependency to your pom.xml.
+
+Update src/main/resources/application.properties (or application.yml) with your database connection details (URL, username, password).
+
+API Endpoints (Example)
+Here are some example API endpoints you can expect in this service:
+
+Flights:
+
+GET /api/flights - Retrieve all available flights.
+
+GET /api/flights/{id} - Retrieve details of a specific flight by ID.
+
+GET /api/flights/search?origin=XYZ&destination=ABC&date=YYYY-MM-DD - Search for flights.
+
+Bookings:
+
+POST /api/bookings - Create a new flight booking.
+
+Request Body Example (JSON):
+
+JSON
+
+{
+  "flightId": "some-flight-id",
+  "passengerName": "John Doe",
+  "email": "john.doe@example.com",
+  "seats": 1
+}
+GET /api/bookings - Retrieve all bookings (might require authentication in a real app).
+
+GET /api/bookings/{id} - Retrieve details of a specific booking by ID.
+
+(Potential) DELETE /api/bookings/{id} - Cancel a booking.
+
+Health Check:
+
+GET /actuator/health (if Spring Boot Actuator is included) - Check application health.
+
+
+
+
+
+
+
+
+
